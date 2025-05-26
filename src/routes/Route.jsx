@@ -8,7 +8,7 @@ import Test from "../pages/Test";
 
 export const router =createBrowserRouter([
     {
-        path:"/",
+        path:"/test",
         element:<RootLayout/>,
         children:[
             {
@@ -18,7 +18,7 @@ export const router =createBrowserRouter([
         ]
     },
     {
-        path:'/test',
+        path:'/',
         element:<Test/>,
         children:[
             {
