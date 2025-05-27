@@ -1,6 +1,9 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@700&display=swap');
+
 @theme {
   --font-display: "Satoshi", "sans-serif";
+  --font-kufi:"Reem Kufi", 'sans-serif';
   --breakpoint-3xl: 120rem;
   --color-avocado-100: oklch(0.99 0 0);
   --color-avocado-200: oklch(0.98 0.04 113.22);

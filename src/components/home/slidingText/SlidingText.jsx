@@ -5,7 +5,7 @@ const SlidingText = () => {
   const text = "A safe, simple, and smart way of managing your children’s finances";
 
   return (
-    <div className="relative w-full overflow-hidden py-8 m-auto flex items-center #95C83E">
+    <div className="relative w-full overflow-hidden py-8 m-auto flex items-center bg-[#95C83E]">
       <motion.div
         className="absolute flex items-center whitespace-nowrap text-white text-xl font-semibold space-x-10"
         initial={{ x: "0%" }}
