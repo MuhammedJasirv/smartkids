@@ -5,14 +5,20 @@ import Footer from '../components/common/footer/Footer'
 import Landing from '../components/home/landing/Landing'
 import About from '../components/home/about/About'
 import Howitwork from '../components/home/howitwork/Howitwork'
+import PaymentsApp from '../components/home/paymentsApp/PaymentsApp'
+import Priceing from '../components/home/priceing/Priceing'
+import Faq from '../components/home/faq/Faq'
 
 const Test = () => {
   return (
     <>
-    {/* <Landing/>
+    <Landing/>
     <SlidingText/>
-    <About/> */}
+    <About/>
     <Howitwork/>
+    <PaymentsApp/>
+    <Priceing/>
+    <Faq/>
     </>
   )
 }

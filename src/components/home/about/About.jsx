@@ -47,7 +47,7 @@ const About = () => {
     },
   ];
   return (
-    <div className="bg-white flex  justify-center  ">
+    <div className="bg-white flex  justify-center pb-10  ">
       <div className="w-[50%] pl-[7%] ">
         <img src={Dots} className="absolute left-[7%] " alt="" />
         <div className=" h-full  flex flex-col justify-center pr-[10%] m-auto ">

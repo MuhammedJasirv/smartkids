@@ -6,12 +6,15 @@ import ImgTwo from '../../../assets/images/home/how it work/TwoImg.png'
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Student from '../../../assets/images/home/how it work/Student.png'
 import Histroy from '../../../assets/images/home/how it work/History.png'
+import Transaction from '../../../assets/images/home/how it work/Transaction.png'
+import TransactionSilver from '../../../assets/images/home/how it work/TransactionSilverCard.png'
 const Howitwork = () => {
   return (
     <div
-      className="bg-no-repeat bg-cover bg-center  overflow-y-hidden "
+      className="bg-no-repeat bg-cover bg-center pb-10   relative "
       style={{ backgroundImage: `url(${Home})` }}
     >
+        <img src={Hand} className="absolute -top-8 right-[7%] z-20" alt="" />
       <div className=" w-full p-14 pl-32 ">
         <p className="text-white font-kufi font-bold text-4xl">
           How does it work?
@@ -67,7 +70,9 @@ const Howitwork = () => {
         <div className="relative w-[30%] flex justify-center pr-20 ">
             <div className="bg-[linear-gradient(to_bottom,#3E89C8,#95C83E)] w-48 h-[350px] absolute rounded-4xl -ml-40 -top-4 z-0 "></div>
             <img src={ImgTwo} className="z-10 max-w-80" alt="" />
-                    </div>
+            <img src={Transaction} className="absolute z-20 -left-46 -top-3" alt="" />
+            <img src={TransactionSilver} className="absolute z-20 -bottom-12 right-0" alt="" />
+            </div>
       </div>
       
     </div>
