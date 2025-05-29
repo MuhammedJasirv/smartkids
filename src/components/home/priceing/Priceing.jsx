@@ -91,32 +91,32 @@ const Pricing = () => {
       {/* Header section with title and toggle */}
       <motion.div
         ref={containerRef}
-        className="pt-20 flex flex-col items-center"
+        className="md:pt-20 pt-5 flex flex-col items-center"
         initial="hidden"
         animate={containerInView ? "visible" : "hidden"}
         variants={containerVariants}
       >
         <motion.p 
-          className="text-5xl font-bold font-kufi text-white"
+          className="md:text-5xl font-bold font-kufi text-white m-auto text-center text-2xl"
           variants={textVariants}
         >
           Money well Invested
         </motion.p>
 
         <motion.div 
-          className="flex items-center gap-10 mt-10"
+          className="flex items-center gap-6 md:gap-10 md:mt-10 mt-5"
           variants={textVariants}
         >
-          <p className="text-white text-xl font-sans font-bold">Monthly</p>
+          <p className="text-white text-sm md:text-xl font-sans font-bold">Monthly</p>
           <ToggleSwitch isOn={isOne} setIsOn={setIsOn} />
-          <p className="text-white text-xl font-sans font-bold">Yearly</p>
+          <p className="text-white text-sm md:text-xl font-sans font-bold">Yearly</p>
         </motion.div>
       </motion.div>
 
       {/* Pricing cards section */}
       <motion.div 
         ref={cardsRef}
-        className="flex justify-center gap-10 mt-18 px-4 flex-wrap"
+        className="flex justify-center gap-10 mt-10 md:mt-18 px-4 flex-wrap"
         initial="hidden"
         animate={cardsInView ? "visible" : "hidden"}
         variants={containerVariants}
@@ -145,18 +145,18 @@ const ToggleSwitch = ({ isOn, setIsOn }) => {
     >
       <div
         onClick={() => setIsOn(!isOn)}
-        className={`w-40 h-12 flex items-center border border-[#3E89C8] rounded-full p-1 cursor-pointer transition-colors duration-300`}
+        className={`md:w-40 md:h-12 w-14 h-6 flex items-center border border-[#3E89C8] rounded-full p-1 cursor-pointer transition-colors duration-500`}
       >
         <motion.div
-          className={`w-16 h-9 rounded-full shadow-md ${
+          className={`md:w-16 md:h-9 h-4 w-4 rounded-full shadow-md ${
             isOn
               ? "bg-gradient-to-t from-[#3E89C8] to-[#95C83E]"
               : "bg-gradient-to-b from-[#3E89C8] to-[#95C83E]"
           }`}
           animate={{
-            x: isOn ? 120 : 0
+            x: isOn ?  (window.innerWidth >= 768 ? 80 : 28) : 0
           }}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          transition={{ type: "spring", stiffness: 100, damping: 20 }}
         />
       </div>
     </motion.div>

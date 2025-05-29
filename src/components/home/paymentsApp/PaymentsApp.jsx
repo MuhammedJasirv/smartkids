@@ -10,30 +10,34 @@ const items = [
   {
     id: 1,
     title: "Instant Transfers",
-    content: "Transfer money to your child's account anytime, anywhere. And avoid the panic of any emergency.",
+    content:
+      "Transfer money to your child's account anytime, anywhere. And avoid the panic of any emergency.",
     color: "#8CBE3E",
-    icon: Transfer
+    icon: Transfer,
   },
   {
     id: 2,
     title: "Real Time Notifications​",
-    content: "Transfer money to your child's account anytime, anywhere. And avoid the panic of any emergency.",
+    content:
+      "Transfer money to your child's account anytime, anywhere. And avoid the panic of any emergency.",
     color: "#3E89C8",
-    icon: Notification
+    icon: Notification,
   },
   {
     id: 3,
     title: "Real Time Notifications​",
-    content: "Transfer money to your child's account anytime, anywhere. And avoid the panic of any emergency.",
+    content:
+      "Transfer money to your child's account anytime, anywhere. And avoid the panic of any emergency.",
     color: "#3E89C8",
-    icon: Notification
+    icon: Notification,
   },
   {
     id: 4,
     title: "Instant Transfers",
-    content: "Transfer money to your child's account anytime, anywhere. And avoid the panic of any emergency.",
+    content:
+      "Transfer money to your child's account anytime, anywhere. And avoid the panic of any emergency.",
     color: "#8CBE3E",
-    icon: Transfer
+    icon: Transfer,
   },
 ];
 
@@ -41,14 +45,14 @@ const PaymentsApp = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.3
+    threshold: 0.3,
   });
 
-  const pairsCount = Math.ceil(items.length / 2); 
+  const pairsCount = Math.ceil(items.length / 2);
 
   useEffect(() => {
     if (!inView) return;
-    
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 2) % items.length);
     }, 4000);
@@ -69,9 +73,9 @@ const PaymentsApp = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.3,
-        when: "beforeChildren"
-      }
-    }
+        when: "beforeChildren",
+      },
+    },
   };
 
   const itemVariants = {
@@ -81,9 +85,9 @@ const PaymentsApp = () => {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "backOut"
-      }
-    }
+        ease: "backOut",
+      },
+    },
   };
 
   const textVariants = {
@@ -93,9 +97,9 @@ const PaymentsApp = () => {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const mobileVariants = {
@@ -105,47 +109,47 @@ const PaymentsApp = () => {
       opacity: 1,
       transition: {
         duration: 1,
-        ease: "backOut"
-      }
-    }
+        ease: "backOut",
+      },
+    },
   };
 
   return (
-    <motion.div 
+    <motion.div
       ref={ref}
-      className="pb-10 flex justify-center pt-10"
+      className="pb-10 flex flex-col lg:flex-row justify-center pt-10 px-4 lg:px-0"
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={containerVariants}
     >
       {/* Mobile Image */}
-      <motion.div 
-        className="w-[30%] flex justify-center items-center"
+      <motion.div
+        className="w-[30%] flex justify-center items-center m-auto mb-5 lg:m-0 lg:mb-0"
         variants={mobileVariants}
       >
         <img src={MobileScreen} alt="Mobile app screenshot" />
       </motion.div>
 
       {/* Content */}
-      <div className="w-[50%] flex gap-20 flex-col">
-        <motion.div 
+      <div className="w-full lg:w-[50%] flex gap-6 lg:gap-20 flex-col">
+        <motion.div
           className="flex items-center flex-col"
           variants={textVariants}
         >
-          <p className="text-5xl font-kufi font-bold w-2/3 text-center">
+          <p className="text-2xl lg:text-5xl font-kufi font-bold w-full lg:w-2/3 text-center px-4">
             Smartkids Card & Payments App
           </p>
-          <p className="text-lg font-semibold font-sans mt-10">
+          <p className="text-base lg:text-lg font-semibold font-sans mt-4 lg:mt-10 text-center px-4">
             Help your child grow into a financially responsible adult
           </p>
         </motion.div>
 
-        <div className="w-full max-w-5xl mx-auto">
-          <div className="flex gap-4 transition-all duration-500">
+        <div className="w-full max-w-5xl mx-auto px-4 ">
+          <div className="flex flex-col md:flex-row md:gap-4 gap-14 transition-all duration-500 mt-8 md:mt-0">
             {visibleItems.map((item) => (
               <motion.div
                 key={item.id}
-                className="flex-1 bg-[#003041] text-white rounded-lg shadow-lg p-4 relative"
+                className="flex-1 bg-[#003041] text-white rounded-lg shadow-lg p-4 relative min-h-[250px] md:min-h-[300px]"
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
               >
@@ -156,49 +160,55 @@ const PaymentsApp = () => {
                   className="absolute top-0 left-0 w-full h-full object-cover opacity-10"
                 />
 
-                {/* Center-Top Circle */}
-                <motion.div 
-                  className="absolute -top-10 left-1/2 transform -translate-x-1/2"
+                {/* Center-Top Circle - Smaller on mobile */}
+                <motion.div
+                  className="absolute -top-8 md:-top-10 left-1/2 transform -translate-x-1/2"
                   initial={{ scale: 0 }}
                   animate={inView ? { scale: 1 } : {}}
-                  transition={{ 
+                  transition={{
                     type: "spring",
                     stiffness: 260,
                     damping: 20,
-                    delay: 0.3
+                    delay: 0.3,
                   }}
                 >
-                  <div className="bg-white p-2 rounded-full border-[18px] border-[#003041]">
+                  <div className="bg-white p-2 rounded-full border-[12px] md:border-[18px] border-[#003041]">
                     <div
                       style={{ backgroundColor: item.color }}
-                      className="w-28 h-28 rounded-full flex justify-center items-center"
+                      className="w-16 h-16 md:w-28 md:h-28 rounded-full flex justify-center items-center"
                     >
-                      <img src={item.icon} alt={item.title} />
+                      <img
+                        src={item.icon}
+                        alt={item.title}
+                        className="w-8 h-8 md:w-14 md:h-14"
+                      />
                     </div>
                   </div>
                 </motion.div>
 
-                {/* Content */}
-                <div className="pt-32 text-center">
-                  <p className="text-xl font-semibold font-sans">
+                {/* Content - Adjusted for mobile */}
+                <div className="pt-24 md:pt-32 text-center px-2">
+                  <p className="text-lg md:text-xl font-semibold font-sans">
                     {item.title}
                   </p>
-                  <p className="text-sm font-sans">{item.content}</p>
+                  <p className="text-xs md:text-sm font-sans mt-1">
+                    {item.content}
+                  </p>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Indicators */}
-          <motion.div 
-            className="flex justify-center gap-3 mb-6 mt-14"
+          {/* Indicators - Smaller on mobile */}
+          <motion.div
+            className="flex justify-center gap-2 md:gap-3 mb-6 mt-8 md:mt-14"
             variants={textVariants}
           >
             {[...Array(pairsCount)].map((_, index) => (
               <div
                 key={index}
-                className={`w-14 h-2 rounded-full transition-all duration-300 ${
-                  index === activePair ? 'bg-[#3E89C8]' : 'bg-[#9FCAEE]'
+                className={`w-8 md:w-14 h-1 md:h-2 rounded-full transition-all duration-300 ${
+                  index === activePair ? "bg-[#3E89C8]" : "bg-[#9FCAEE]"
                 }`}
               />
             ))}

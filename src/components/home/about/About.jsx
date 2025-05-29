@@ -86,20 +86,20 @@ const About = () => {
 
   return (
     <motion.div 
-      className="bg-white flex justify-center pb-10"
+      className="bg-white flex justify-center pb-10 xl:flex-row flex-col mt-10 xl:mt-0"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
     >
-      <div className="w-[50%] pl-[7%]">
+      <div className="xl:w-[50%] w-full xl:pl-[7%] text-center xl:text-start">
         <motion.img 
           src={Dots} 
           className="absolute left-[7%]" 
           alt=""
           variants={textVariants}
         />
-        <div className="h-full flex flex-col justify-center pr-[10%] m-auto">
+        <div className="h-full flex flex-col justify-center px-8 xl:pr-[10%] m-auto ">
           <motion.p 
             className="text-5xl font-kufi font-bold"
             variants={textVariants}
@@ -122,9 +122,9 @@ const About = () => {
           </motion.p>
         </div>
       </div>
-      <div className="w-[50%] pr-[1%]">
-        <div className="gap-10 w-full flex flex-wrap">
-          <div className="mt-8 flex flex-col gap-10">
+      <div className="xl:w-[50%] xl:pr-[1%] =">
+        <div className="xl:gap-10  w-full flex flex-wrap  p-10 xl:p-0">
+          <div className="mt-8 flex flex-col gap-10 m-auto xl:m-0 ">
             <motion.div variants={cardVariants}>
               <Card data={data[0]} />
             </motion.div>
@@ -132,7 +132,7 @@ const About = () => {
               <Card data={data[1]} />
             </motion.div>
           </div>
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-10 m-auto xl:m-0">
             <motion.div variants={cardVariants}>
               <Card data={data[2]} />
             </motion.div>
