@@ -1,10 +1,24 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@700&display=swap");
 
 @theme {
   --font-display: "Satoshi", "sans-serif";
-  --font-kufi:"Reem Kufi", 'sans-serif';
-  --breakpoint-3xl: 120rem;
+  --font-kufi: "Reem Kufi", "sans-serif";
+  /* Large desktops (16" laptops and above) */
+  --breakpoint-3xl: 1920px;
+  /* // Standard desktops */
+  --breakpoint-2xl: 1536px;
+  /* // 13-15" laptops */
+  --breakpoint-xl: 1280px;
+  /* Small laptops / large tablets */
+  --breakpoint-lg: 1024px;
+  /* // Tablets */
+  --breakpoint-md: 768px;
+  /* // Large phones */
+  --breakpoint-sm: 640px;
+  /* // Small phones */
+  --breakpoint-xs: 480px;
+
   --color-avocado-100: oklch(0.99 0 0);
   --color-avocado-200: oklch(0.98 0.04 113.22);
   --color-avocado-300: oklch(0.94 0.11 115.03);
