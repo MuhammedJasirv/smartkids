@@ -19,32 +19,32 @@ const Landing = () => {
     }
   };
 
-  const textVariants = {
+  const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.5,
         ease: "easeOut"
       }
     }
   };
 
-  const imageVariants = {
+  const phoneVariants = {
     hidden: { x: 100, opacity: 0 },
     visible: {
       x: 0,
       opacity: 1,
       transition: {
-        duration: 1,
+        duration: 0.8,
         ease: "anticipate"
       }
     }
   };
 
-  const buttonVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
+  const scaleVariants = {
+    hidden: { scale: 0.9, opacity: 0 },
     visible: {
       scale: 1,
       opacity: 1,
@@ -57,7 +57,7 @@ const Landing = () => {
 
   return (
     <div
-      className="bg-no-repeat bg-cover bg-center max-h-screen overflow-y-hidden"
+      className="bg-no-repeat bg-cover bg-center max-h-[110vh] overflow-y-hidden"
       style={{ backgroundImage: `url(${Home})` }}
     >
       <div>
@@ -65,42 +65,40 @@ const Landing = () => {
       </div>
       
       <motion.div 
-        className="flex"
+        className="flex lg:flex-row flex-col overflow-hidden"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
-        <div className="w-[65%] pl-32 pt-14 text-white">
+        <div className="lg:w-[65%] lg:pl-32 pt-3 lg:pt-40 text-white">
           <motion.p 
-            className="font-stretch-semi-condensed font-bold text-7xl"
-            variants={textVariants}
+            className="font-stretch-semi-condensed font-bold md:text-4xl text-center lg:text-start lg:text-7xl"
+            variants={itemVariants}
           >
             Manage your children's finances efficiently
           </motion.p>
           
           <motion.p 
-            className="font-sans font-semibold text-xl w-[70%] mt-5"
-            variants={textVariants}
+            className="font-sans font-semibold text-center lg:text-start m-auto lg:m-0 lg:text-xl w-[90%] lg:w-[70%] mt-5"
+            variants={itemVariants}
           >
             Cultivate smart spending habits in your child by tracking and
             managing their finances with a pocket money solution
           </motion.p>
           
           <motion.div 
-            className="flex gap-6 mt-20"
-            variants={containerVariants}
+            className="justify-center lg:justify-start flex lg:gap-6 gap-2 lg:mt-20 mt-4"
+            variants={scaleVariants}
           >
             <motion.img 
               src={PlayStore} 
-              alt="Google Play" 
-              variants={buttonVariants}
+              alt="Google Play Store"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             />
             <motion.img 
               src={AppStore} 
-              alt="App Store" 
-              variants={buttonVariants}
+              alt="App Store"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             />
@@ -108,23 +106,50 @@ const Landing = () => {
         </div>
         
         <motion.div 
-          className="w-[35%] h-full"
-          variants={imageVariants}
+          className="lg:w-[35%]"
+          variants={phoneVariants}
         >
           <motion.img
             src={PhoneCards}
             alt="Phone Cards"
-            className="max-w-7xl relative -left-96 -top-40"
+            className="max-w-7xl w-md mx-auto lg:mx-0 sm:w-xl xs:w-lg lg:w-3xl static lg:relative lg:-left-64 overflow-hidden md:w-xl xl:w-4xl md:-left-44 -left-96 lg:-top-24 xl:-top-40"
             initial={{ rotate: -5 }}
             animate={{ rotate: 0 }}
-            transition={{ 
-              type: "spring",
-              stiffness: 50,
-              damping: 10,
-              delay: 0.5
+            transition={{
+              yoyo: Infinity,
+              duration: 3,
+              ease: "easeInOut"
             }}
           />
         </motion.div>
+      </motion.div>
+      
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ 
+          opacity: [0, 1, 0],
+          y: [20, 0, -20]
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        <span className="text-white text-sm mb-2">Scroll Down</span>
+        <div className="w-5 h-8 border-2 border-white rounded-full relative">
+          <motion.div
+            className="w-1 h-2 bg-white rounded-full absolute top-1 left-1/2 transform -translate-x-1/2"
+            animate={{ y: [0, 6, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        </div>
       </motion.div>
     </div>
   );
