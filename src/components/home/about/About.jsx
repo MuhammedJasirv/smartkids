@@ -95,7 +95,7 @@ const About = () => {
       <div className="xl:w-[50%] w-full xl:pl-[7%] text-center xl:text-start relative">
         <motion.img
           src={Dots}
-          className="hidden xl:block absolute left-[7%] top-0"
+          className="absolute left-4 top-4 xl:left-[7%] xl:top-0"
           alt=""
           variants={textVariants}
         />
