@@ -57,7 +57,7 @@ const Landing = () => {
 
   return (
     <div
-      className="bg-no-repeat bg-cover bg-center max-h-[110vh] overflow-y-hidden"
+      className="bg-no-repeat bg-cover bg-center lg:max-h-[110vh] overflow-y-hidden"
       style={{ backgroundImage: `url(${Home})` }}
     >
       <div>
@@ -72,7 +72,7 @@ const Landing = () => {
       >
         <div className="lg:w-[65%] lg:pl-32 pt-3 lg:pt-40 text-white">
           <motion.p 
-            className="font-stretch-semi-condensed font-bold md:text-4xl text-center lg:text-start lg:text-7xl"
+            className="font-stretch-semi-condensed font-bold text-4xl text-center lg:text-start lg:text-7xl"
             variants={itemVariants}
           >
             Manage your children's finances efficiently
@@ -126,7 +126,7 @@ const Landing = () => {
       
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ 
           opacity: [0, 1, 0],

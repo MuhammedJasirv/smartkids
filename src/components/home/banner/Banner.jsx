@@ -65,18 +65,18 @@ const Banner = () => {
         {/* Image section */}
         <motion.div 
           className="md:w-[30%] relative md:mb-0 -mb-30  order-1 md:order-2 "
-          initial={{ x: 50, opacity: 0 }}
-          animate={inView ? { x: 0, opacity: 1 } : {}}
-          transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
+          // initial={{ x: 50, opacity: 0 }}
+          // animate={inView ? { x: 0, opacity: 1 } : {}}
+          // transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
         >
           <div className="relative w-full h-full overflow-visible">
             <motion.img
               src={ImgOne}
               alt="App Illustration"
               className="md:absolute top-5 left-0 w-full object-contain -translate-y-1/4 h-[391px]"
-              initial={{ y: 100, opacity: 0 }}
-              animate={inView ? { y: 0, opacity: 1 } : {}}
-              transition={{ delay: 0.5, type: "spring", stiffness: 60 }}
+              // initial={{ y: 100, opacity: 0 }}
+              // animate={inView ? { y: 0, opacity: 1 } : {}}
+              // transition={{ delay: 0.5, type: "spring", stiffness: 60 }}
             />
           </div>
         </motion.div>
