@@ -107,7 +107,7 @@ const About = () => {
             A safe, simple, and smart way of managing your children's finances
           </motion.p>
           <motion.p 
-            className="font-normal text-lg pr-12 pt-7"
+            className="font-normal text-lg lg:pr-12 pt-7"
             variants={textVariants}
           >
             simply dummy text of the printing and typesetting industry. tt has
@@ -123,7 +123,7 @@ const About = () => {
         </div>
       </div>
       <div className="xl:w-[50%] xl:pr-[1%] =">
-        <div className="xl:gap-10  w-full flex flex-wrap  p-10 xl:p-0">
+        <div className="xl:gap-10  w-full flex flex-wrap  lg:p-10 xl:p-0">
           <div className="mt-8 flex flex-col gap-10 m-auto xl:m-0 ">
             <motion.div variants={cardVariants}>
               <Card data={data[0]} />

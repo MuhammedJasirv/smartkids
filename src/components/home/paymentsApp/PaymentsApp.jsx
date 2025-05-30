@@ -5,7 +5,7 @@ import MobileScreen from "../../../assets/images/home/paymentsApp/MobileScreen.p
 import KVector from "../../../assets/images/home/paymentsApp/KVector.png";
 import Transfer from "../../../assets/images/home/paymentsApp/Transfer.png";
 import Notification from "../../../assets/images/home/paymentsApp/notification.png";
-
+import Home from '../../../assets/images/home/paymentsApp/Bg.png'
 const items = [
   {
     id: 1,
@@ -117,11 +117,16 @@ const PaymentsApp = () => {
   return (
     <motion.div
       ref={ref}
-      className="pb-10 flex flex-col lg:flex-row justify-center pt-10 px-4 lg:px-0"
+      className="pb-10 flex flex-col lg:flex-row justify-center pt-10 px-4 lg:px-0 bg-no-repeat bg-cover bg-center "
       initial="hidden"
+      style={{ backgroundImage: `url(${Home})` }}
       animate={inView ? "visible" : "hidden"}
       variants={containerVariants}
     >
+      {/* <div
+            className="bg-no-repeat bg-cover bg-center pb-10 relative"
+            style={{ backgroundImage: `url(${Home})` }}
+          ></div> */}
       {/* Mobile Image */}
       <motion.div
         className="w-[30%] flex justify-center items-center m-auto mb-5 lg:m-0 lg:mb-0"

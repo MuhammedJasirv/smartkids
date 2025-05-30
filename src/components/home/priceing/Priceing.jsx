@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { TiTick } from "react-icons/ti";
-import Home from "../../../assets/images/ui/home.png";
+import Home from "../../../assets/images/home/pricing/Bg.png";
 
 const Pricing = () => {
   const [isOne, setIsOn] = useState(false);
@@ -85,13 +85,13 @@ const Pricing = () => {
 
   return (
     <div
-      className="bg-no-repeat bg-cover bg-center pb-12 relative"
+      className="bg-no-repeat bg-cover  pb-10 pt-10 relative"
       style={{ backgroundImage: `url(${Home})` }}
     >
       {/* Header section with title and toggle */}
       <motion.div
         ref={containerRef}
-        className="md:pt-20 pt-5 flex flex-col items-center"
+        className=" flex flex-col items-center"
         initial="hidden"
         animate={containerInView ? "visible" : "hidden"}
         variants={containerVariants}
@@ -138,6 +138,29 @@ const Pricing = () => {
 };
 
 const ToggleSwitch = ({ isOn, setIsOn }) => {
+   const [xOffset, setXOffset] = useState(0);
+
+  useEffect(() => {
+    const calculateOffset = () => {
+      const width = window.innerWidth;
+      if (width >= 1440) return 85;
+      if (width >= 1024) return 85;
+      if (width >= 768) return 30;
+      if (width >= 480) return 30;
+      return 30;
+    };
+
+    const handleResize = () => {
+      setXOffset(calculateOffset());
+    };
+
+    // Set initial offset
+    handleResize();
+
+    // Listen for window resize
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <motion.div 
       className="flex items-center gap-3"
@@ -154,7 +177,7 @@ const ToggleSwitch = ({ isOn, setIsOn }) => {
               : "bg-gradient-to-b from-[#3E89C8] to-[#95C83E]"
           }`}
           animate={{
-            x: isOn ?  (window.innerWidth >= 768 ? 80 : 28) : 0
+             x: isOn ? xOffset : 0
           }}
           transition={{ type: "spring", stiffness: 100, damping: 20 }}
         />
