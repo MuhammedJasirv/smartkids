@@ -55,9 +55,9 @@ const About = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        when: "beforeChildren"
-      }
-    }
+        when: "beforeChildren",
+      },
+    },
   };
 
   const textVariants = {
@@ -67,9 +67,9 @@ const About = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const cardVariants = {
@@ -79,34 +79,35 @@ const About = () => {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "backOut"
-      }
-    }
+        ease: "backOut",
+      },
+    },
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="bg-white flex justify-center pb-10 xl:flex-row flex-col mt-10 xl:mt-0"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
     >
-      <div className="xl:w-[50%] w-full xl:pl-[7%] text-center xl:text-start">
-        <motion.img 
-          src={Dots} 
-          className="absolute left-[7%]" 
+      <div className="xl:w-[50%] w-full xl:pl-[7%] text-center xl:text-start relative">
+        <motion.img
+          src={Dots}
+          className="hidden xl:block absolute left-[7%] top-0"
           alt=""
           variants={textVariants}
         />
+
         <div className="h-full flex flex-col justify-center px-8 xl:pr-[10%] m-auto ">
-          <motion.p 
+          <motion.p
             className="text-5xl font-kufi font-bold"
             variants={textVariants}
           >
             A safe, simple, and smart way of managing your children's finances
           </motion.p>
-          <motion.p 
+          <motion.p
             className="font-normal text-lg lg:pr-12 pt-7"
             variants={textVariants}
           >
@@ -154,9 +155,9 @@ const Card = ({ data }) => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const iconVariants = {
@@ -167,9 +168,9 @@ const Card = ({ data }) => {
       transition: {
         type: "spring",
         stiffness: 260,
-        damping: 20
-      }
-    }
+        damping: 20,
+      },
+    },
   };
 
   return (
@@ -190,14 +191,14 @@ const Card = ({ data }) => {
         >
           <img src={data.icon} alt="" />
         </motion.div>
-        
+
         <img
           src={data.bg}
           className="absolute top-0 right-0 h-full"
           alt="Decoration"
         />
 
-        <motion.div 
+        <motion.div
           className="relative z-10 flex mt-6 h-full flex-col justify-center"
           variants={cardContentVariants}
         >
