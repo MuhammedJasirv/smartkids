@@ -90,6 +90,8 @@ const Footer = () => {
         </motion.div>
       </motion.div>
 
+
+      <div className="w-full h-px bg-gradient-to-r mt-2 bg-[#95C83E] z-10 pointer-events-none"></div>
       <motion.div 
         className='flex justify-between items-center px-16  py-8 relative flex-wrap gap-5 md:px-24 sm:px-8 xs:px-6 xs:justify-center xs:text-center'
         initial={{ opacity: 0 }}
@@ -98,10 +100,9 @@ const Footer = () => {
           transition: { duration: 0.6, delay: 0.5 }
         } : {}}
       >
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r bg-[#95C83E] z-10 pointer-events-none"></div>
         <p className="text-lg md:text-base sm:text-sm m-auto md:m-0">© 2024 Ivory technologies</p>
         <motion.div 
-          className='flex items-center gap-4 m-auto md:m-0'
+          className='flex items-center justify-between gap-4 m-auto md:m-0'
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={{

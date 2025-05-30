@@ -61,7 +61,7 @@ const Navigation = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="hidden md:flex w-[85%] pt-2 mx-auto justify-between md:px-8 items-center text-white"
+        className="hidden md:flex lg:w-[90%] xl:w-[85%] pt-2 mx-auto xl:text-base lg:px-6 justify-between md:px-8 items-center text-white"
       >
         <motion.img 
           src={Logo} 
@@ -72,7 +72,7 @@ const Navigation = () => {
         />
         
         <motion.div 
-          className="flex items-center space-x-14"
+          className="flex items-center md:space-x-4 lg:space-x-8 xl:space-x-14"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -85,7 +85,7 @@ const Navigation = () => {
               onHoverEnd={() => setHoveredItem(null)}
               className="relative"
             >
-              <p className="font-sans font-semibold text-lg hover:text-gray-200 cursor-pointer">
+              <p className="font-sans font-semibold md:text-sm lg:text-base xl:text-lg hover:text-gray-200 cursor-pointer">
                 {item}
               </p>
               {hoveredItem === item && (
@@ -103,7 +103,7 @@ const Navigation = () => {
         </motion.div>
         
         <motion.div 
-          className="flex items-center space-x-6"
+          className="flex items-center lg:space-x-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -113,7 +113,7 @@ const Navigation = () => {
             variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"
-            className="bg-[linear-gradient(to_bottom,#3E89C8,#95C83E)] h-14 px-10 rounded-4xl font-sans font-semibold text-lg text-black shadow-[-4px_4px_0px_rgb(255,255,255)] hover:opacity-90"
+            className="bg-[linear-gradient(to_bottom,#3E89C8,#95C83E)] py-3 xl:h-14 xl:px-10 px-3 rounded-4xl font-sans font-semibold md:text-sm lg:text-lg text-black shadow-[-4px_4px_0px_rgb(255,255,255)] hover:opacity-90"
           >
             Download the App
           </motion.button>

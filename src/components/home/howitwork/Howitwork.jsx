@@ -10,7 +10,7 @@ import Student from '../../../assets/images/home/how it work/Student.png';
 import Histroy from '../../../assets/images/home/how it work/History.png';
 import Transaction from '../../../assets/images/home/how it work/Transaction.png';
 import TransactionSilver from '../../../assets/images/home/how it work/TransactionSilverCard.png';
-
+import IdCard from '../../../assets/images/home/how it work/IdCard.png'
 const Howitwork = () => {
   // Animation variants
   const containerVariants = {
@@ -129,21 +129,12 @@ const Howitwork = () => {
           />
           
           <motion.div 
-            className="bg-[#E1EDF5] h-20 rounded-2xl border border-blue-400 shadow-md shadow-black/10 w-80 absolute z-20 -right-32 flex justify-center gap-10 items-center p-2"
+            className="   absolute z-20 -right-36 flex justify-center  items-center "
             variants={cardVariants}
             whileHover={{ y: -5 }}
           >
-            <div>
-              <img src={Student} alt="" />
-            </div>
-            <div>
-              <p className="text-md font-semibold">Ancy James</p>
-              <p className="font-sans text-xs">Admisssion Number :5434</p>
-              <p className="font-sans text-xs">Kv School</p>
-            </div>
-            <div>
-              <RiDeleteBin6Line size={20} color="blue"/>
-            </div>
+
+            <img src={IdCard} alt="" />
           </motion.div>
           
           <motion.div 
@@ -237,3 +228,20 @@ const Howitwork = () => {
 };
 
 export default Howitwork;
+
+
+
+
+
+
+            {/* <div>
+              <img src={Student} alt="" />
+            </div>
+            <div>
+              <p className="text-md font-semibold">Ancy James</p>
+              <p className="font-sans text-xs">Admisssion Number :5434</p>
+              <p className="font-sans text-xs">Kv School</p>
+            </div> */}
+            {/* <div>
+              <RiDeleteBin6Line size={20} color="blue"/>
+            </div> */}
