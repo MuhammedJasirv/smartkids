@@ -6,6 +6,8 @@ import KVector from "../../../assets/images/home/paymentsApp/KVector.png";
 import Transfer from "../../../assets/images/home/paymentsApp/Transfer.png";
 import Notification from "../../../assets/images/home/paymentsApp/notification.png";
 import Home from '../../../assets/images/home/paymentsApp/Bg.png'
+import Coin1 from '../../../assets/images/home/paymentsApp/coins/1.png'
+import Coin2 from '../../../assets/images/home/paymentsApp/coins/2.png'
 const items = [
   {
     id: 1,
@@ -117,12 +119,13 @@ const PaymentsApp = () => {
   return (
     <motion.div
       ref={ref}
-      className="pb-10 flex flex-col lg:flex-row justify-center pt-10 px-4 lg:px-0 bg-no-repeat bg-cover bg-center "
+      className="pb-10 flex flex-col relative lg:flex-row justify-center pt-10 px-4 lg:px-0 bg-no-repeat bg-cover bg-center "
       initial="hidden"
       style={{ backgroundImage: `url(${Home})` }}
       animate={inView ? "visible" : "hidden"}
       variants={containerVariants}
     >
+      
       {/* <div
             className="bg-no-repeat bg-cover bg-center pb-10 relative"
             style={{ backgroundImage: `url(${Home})` }}
@@ -136,7 +139,7 @@ const PaymentsApp = () => {
       </motion.div>
 
       {/* Content */}
-      <div className="w-full lg:w-[50%] flex gap-6 lg:gap-20 flex-col">
+      <div className="w-full lg:w-[50%] flex gap-6 lg:gap-20 flex-col relative">
         <motion.div
           className="flex items-center flex-col"
           variants={textVariants}
@@ -148,7 +151,10 @@ const PaymentsApp = () => {
             Help your child grow into a financially responsible adult
           </p>
         </motion.div>
-
+        <div>
+        <img src={Coin1} alt="" className="z-0 absolute hidden top-[5%] lg:flex" />
+        <img src={Coin2} alt="" className="z-0 absolute hidden right-0  top-[20%] lg:flex" />
+      </div>
         <div className="w-full max-w-5xl mx-auto px-4 ">
           <div className="flex flex-col md:flex-row md:gap-4 gap-14 transition-all duration-500 mt-8 md:mt-0">
             {visibleItems.map((item) => (
