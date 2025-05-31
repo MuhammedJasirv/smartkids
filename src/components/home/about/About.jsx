@@ -7,7 +7,8 @@ import Notes from "../../../assets/images/home/about/notes.png";
 import Money from "../../../assets/images/home/about/money.png";
 import CardBgOne from "../../../assets/images/home/about/CardBgOneAndFour.png";
 import CardBgTwo from "../../../assets/images/home/about/CardBgSecountAndTherd.png";
-
+import Coin1 from '../../../assets/images/home/about/coins/1.png'
+import Coin2 from '../../../assets/images/home/about/coins/2.png'
 const About = () => {
   const data = [
     {
@@ -55,9 +56,9 @@ const About = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        when: "beforeChildren"
-      }
-    }
+        when: "beforeChildren",
+      },
+    },
   };
 
   const textVariants = {
@@ -67,9 +68,9 @@ const About = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const cardVariants = {
@@ -79,34 +80,39 @@ const About = () => {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "backOut"
-      }
-    }
+        ease: "backOut",
+      },
+    },
   };
 
   return (
-    <motion.div 
-      className="bg-white flex justify-center pb-10 xl:flex-row flex-col mt-10 xl:mt-0"
+    <motion.div
+      className="bg-white relative flex justify-center pb-10 xl:flex-row flex-col mt-10 xl:mt-0"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
     >
-      <div className="xl:w-[50%] w-full xl:pl-[7%] text-center xl:text-start">
-        <motion.img 
-          src={Dots} 
-          className="absolute left-[7%]" 
+      <div>
+        <img src={Coin1} className="absolute z-0 hidden left-[10%] top-2  lg:flex" alt="" />
+        <img src={Coin2} className="absolute z-0 hidden  bottom-[10%] left-[40%] lg:flex" alt="" />
+      </div>
+      <div className="xl:w-[50%] w-full xl:pl-[7%] text-center xl:text-start relative">
+        <motion.img
+          src={Dots}
+          className="hidden xl:block absolute left-[7%] top-0"
           alt=""
           variants={textVariants}
         />
-        <div className="h-full flex flex-col justify-center px-8 xl:pr-[10%] m-auto ">
-          <motion.p 
+
+        <div className="h-full flex flex-col justify-center px-8 xl:pr-[10%] m-auto z-10 ">
+          <motion.p
             className="text-5xl font-kufi font-bold"
             variants={textVariants}
           >
             A safe, simple, and smart way of managing your children's finances
           </motion.p>
-          <motion.p 
+          <motion.p
             className="font-normal text-lg lg:pr-12 pt-7"
             variants={textVariants}
           >
@@ -122,9 +128,9 @@ const About = () => {
           </motion.p>
         </div>
       </div>
-      <div className="xl:w-[50%] xl:pr-[1%] =">
+      <div className="xl:w-[50%] xl:pr-[1%] z-10">
         <div className="xl:gap-10  w-full flex flex-wrap  lg:p-10 xl:p-0">
-          <div className="mt-8 flex flex-col gap-10 m-auto xl:m-0 ">
+          <div className="mt-8  lg:pt-12 flex flex-col gap-10 m-auto xl:m-0 ">
             <motion.div variants={cardVariants}>
               <Card data={data[0]} />
             </motion.div>
@@ -154,9 +160,9 @@ const Card = ({ data }) => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const iconVariants = {
@@ -167,9 +173,9 @@ const Card = ({ data }) => {
       transition: {
         type: "spring",
         stiffness: 260,
-        damping: 20
-      }
-    }
+        damping: 20,
+      },
+    },
   };
 
   return (
@@ -190,14 +196,14 @@ const Card = ({ data }) => {
         >
           <img src={data.icon} alt="" />
         </motion.div>
-        
+
         <img
           src={data.bg}
           className="absolute top-0 right-0 h-full"
           alt="Decoration"
         />
 
-        <motion.div 
+        <motion.div
           className="relative z-10 flex mt-6 h-full flex-col justify-center"
           variants={cardContentVariants}
         >
