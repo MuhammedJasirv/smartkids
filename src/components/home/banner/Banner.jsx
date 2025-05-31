@@ -4,7 +4,8 @@ import { useInView } from "react-intersection-observer";
 import PlayStore from "../../../assets/images/home/banner/playStore.png";
 import AppStore from "../../../assets/images/home/banner/appStore.png";
 import ImgOne from "../../../assets/images/home/banner/ImgTwo.png";
-
+import Coin1 from '../../../assets/images/home/banner/coins/1.png'
+import Coin2 from '../../../assets/images/home/banner/coins/2.png'
 const Banner = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -13,7 +14,7 @@ const Banner = () => {
   });
 
   return (
-    <div className="bg-white flex justify-center md:mt-10 mt-24 mb-10 px-2 md:px-0">
+    <div className="bg-white flex justify-center md:mt-10 mt-24 mb-10 px-2 md:px-0 ">
       <motion.div 
         ref={ref}
         className="bg-[#95C83E] rounded-4xl w-full lg:w-[85%] flex flex-col md:flex-row "
@@ -21,13 +22,18 @@ const Banner = () => {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
+        
         {/* Text and buttons section */}
         <motion.div 
-          className="p-7 md:w-[70%] flex-col flex items-center order-2 md:order-1 "
+          className="p-7 md:w-[70%] flex-col flex items-center order-2 md:order-1 relative "
           initial={{ x: -50, opacity: 0 }}
           animate={inView ? { x: 0, opacity: 1 } : {}}
           transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
         >
+          <div>
+          <img src={Coin1} alt="" className="absolute z-10 left-[10%] hidden lg:flex" />
+          <img src={Coin2} alt="" className="absolute z-10 right-[5%] hidden lg:flex" />
+        </div>
           <motion.p 
             className="font-bold font-sans text-lg md:text-4xl md:mt-10 text-black text-center"
             initial={{ y: 20, opacity: 0 }}
