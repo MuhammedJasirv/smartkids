@@ -7,8 +7,8 @@ import Notes from "../../../assets/images/home/about/notes.png";
 import Money from "../../../assets/images/home/about/money.png";
 import CardBgOne from "../../../assets/images/home/about/CardBgOneAndFour.png";
 import CardBgTwo from "../../../assets/images/home/about/CardBgSecountAndTherd.png";
-import Coin1 from '../../../assets/images/home/about/coins/1.png'
-import Coin2 from '../../../assets/images/home/about/coins/2.png'
+import Coin1 from "../../../assets/images/home/about/coins/1.png";
+import Coin2 from "../../../assets/images/home/about/coins/2.png";
 const About = () => {
   const data = [
     {
@@ -85,6 +85,36 @@ const About = () => {
     },
   };
 
+  const coinVariants = {
+    hidden: {
+      y: 20,
+      opacity: 0,
+      rotate: 0,
+    },
+    visible: (i) => ({
+      y: 0,
+      opacity: 1,
+      rotate: [0, 10, -10, 0], // subtle wiggle rotation
+      transition: {
+        delay: i * 0.3,
+        duration: 1.5,
+        ease: "easeInOut",
+        rotate: {
+          yoyo: Infinity,
+          duration: 4,
+          delay: 2,
+        },
+      },
+    }),
+    float: {
+      y: ["0%", "-20%", "0%"],
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
   return (
     <motion.div
       className="bg-white relative flex justify-center pb-10 xl:flex-row flex-col mt-10 xl:mt-0"
@@ -94,8 +124,22 @@ const About = () => {
       variants={containerVariants}
     >
       <div>
-        <img src={Coin1} className="absolute z-0 hidden left-[10%] top-2  lg:flex" alt="" />
-        <img src={Coin2} className="absolute z-0 hidden  bottom-[10%] left-[40%] lg:flex" alt="" />
+        <motion.img
+          src={Coin1}
+          initial="hidden"
+          animate={["visible", "float"]}
+          variants={coinVariants}
+          className="absolute z-0 hidden left-[10%] top-2  lg:flex"
+          alt=""
+        />
+        <motion.img
+          src={Coin2}
+          initial="hidden"
+          animate={["visible", "float"]}
+          variants={coinVariants}
+          className="absolute z-0 hidden  bottom-[10%] left-[40%] lg:flex"
+          alt=""
+        />
       </div>
       <div className="xl:w-[50%] w-full xl:pl-[7%] text-center xl:text-start relative">
         <motion.img

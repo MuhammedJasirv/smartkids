@@ -43,7 +43,7 @@ const SlidingText = () => {
 
   return (
     <motion.div
-      className="relative w-full overflow-hidden py-8 m-auto flex items-center bg-[#95C83E]"
+      className="relative w-full z-10 overflow-hidden py-8 m-auto flex items-center bg-[#95C83E]"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}

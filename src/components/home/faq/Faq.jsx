@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import BgHome from "../../../assets/images/home/faq/bg.png";
 import ImgOne from '../../../assets/images/home/faq/ImgOne.png';
-
+import Coin1 from '../../../assets/images/home/faq/coins/1.png'
 const Faq = () => {
   const [titleRef, titleInView] = useInView({
     triggerOnce: true,
@@ -14,6 +14,36 @@ const Faq = () => {
     triggerOnce: true,
     threshold: 0.3
   });
+   const coinVariants = {
+    hidden: {
+      y: 20,
+      opacity: 0,
+      rotate: 0,
+    },
+    visible: (i) => ({
+      y: 0,
+      opacity: 1,
+      rotate: [0, 10, -10, 0], // subtle wiggle rotation
+      transition: {
+        delay: i * 0.3,
+        duration: 1.5,
+        ease: "easeInOut",
+        rotate: {
+          yoyo: Infinity,
+          duration: 4,
+          delay: 2,
+        },
+      },
+    }),
+    float: {
+      y: ["0%", "-20%", "0%"],
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
 
   return (
     <div
@@ -28,10 +58,15 @@ const Faq = () => {
         animate={titleInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <p className="font-kufi font-bold text-3xl lg:text-5xl px-4">Some FAQs about our ivt Smart kids</p>
+        <p className="font-kufi font-bold text-3xl lg:text-5xl px-4 lg:mt-5">Some FAQs about our ivt Smart kids</p>
       </motion.div>
+      <div > 
+        <motion.img  initial="hidden"
+          animate={["visible", "float"]}
+          variants={coinVariants} src={Coin1} alt="" className="absolute right-[10%] top-6 z-0 hidden lg:flex"/>
+      </div>
 
-      <div className="flex justify-center flex-col lg:flex-row">
+      <div className="flex justify-center flex-col lg:flex-row mt-0 lg:mt-10 ">
         {/* Responsive Image Section */}
         <motion.div 
           ref={imageRef}
