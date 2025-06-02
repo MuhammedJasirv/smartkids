@@ -21,7 +21,6 @@ const Test = () => {
       <Priceing />
       <Faq />
       <Banner />
-      <Footer />
     </>
   );
 };
