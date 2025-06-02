@@ -78,13 +78,13 @@ const Faq = () => {
         {/* Responsive Image Section */}
         <motion.div
           ref={imageRef}
-          className="w-full lg:w-[35%] relative flex justify-center lg:justify-end mt-10 max-h-[560px] px-4 lg:px-0  "
+          className="w-full lg:w-[35%] relative flex justify-center  lg:justify-end mt-10 max-h-[560px] px-4 lg:px-0  "
           initial={{ opacity: 0, x: -100 }}
           animate={imageInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
         >
           <motion.div
-            className="bg-[linear-gradient(to_bottom,#3E89C8,#95C83E)] w-[50%] lg:w-1/2 h-full lg:h-full absolute rounded-4xl top-4 z-0 lg:left-10 left-1/3 transform lg:transform-none -translate-x-1/2 lg:-translate-x-0"
+            className="bg-[linear-gradient(to_bottom,#3E89C8,#95C83E)] w-[50%] left-[20%]  lg:w-1/2 h-full lg:h-full absolute rounded-4xl top-4 z-0 lg:left-10 md:left-1/3 transform lg:transform-none -translate-x-1/2 lg:-translate-x-0"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={imageInView ? { scale: 1, opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}

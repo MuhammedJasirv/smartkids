@@ -9,6 +9,7 @@ import PaymentsApp from "../components/home/paymentsApp/PaymentsApp";
 import Priceing from "../components/home/priceing/Priceing";
 import Faq from "../components/home/faq/Faq";
 import Banner from "../components/home/banner/Banner";
+import PriceingYear from "../components/home/priceing/PriceingYear";
 
 const Test = () => {
   return (
