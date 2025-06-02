@@ -1,62 +1,34 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import coinImage from '../../assets/images/home/how it work/coins/1.png';
 
-const Preloader = () => {
+const flipVariants = {
+  animate: {
+    rotateY: [0, 180, 360],
+    transition: {
+      duration: 1.2,
+      ease: 'linear',
+      repeat: Infinity,
+    },
+  },
+};
+
+const PreLoader = () => {
   return (
-    <div id="loading">
-      <div id="loading-center">
-        <div className="loading-icon">
-          <div className="spinner"></div>
-        </div>
-      </div>
-      <style jsx>{`
-        #loading {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          z-index: 9999;
-        }
-
-        #loading-center {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-          height: 100%;
-        }
-
-        .spinner {
-          border: 8px solid blue; /* Blue color for the outer border */
-          border-top: 8px solid yellow; /* Yellow for the rotating part */
-          border-radius: 50%;
-          width: 50px;
-          height: 50px;
-          animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-
-        @media (max-width: 600px) {
-          .spinner {
-            width: 40px;
-            height: 40px;
-          }
-        }
-      `}</style>
+    <div className="fixed inset-0 z-50 flex items-center justify-center ">
+      <motion.div
+        className="w-20 h-20"
+        variants={flipVariants}
+        animate="animate"
+      >
+        <img
+          src={coinImage}
+          alt="Loading Coin"
+          className="w-full h-full object-contain"
+        />
+      </motion.div>
     </div>
   );
 };
 
-export default Preloader;
+export default PreLoader;

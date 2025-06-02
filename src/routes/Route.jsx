@@ -8,17 +8,13 @@ import Test from "../pages/Test";
 
 export const router =createBrowserRouter([
     {
-        path:"/test",
+        path:"/",
         element:<RootLayout/>,
         children:[
             {
                 index:true,
-                element:<Home/>
+                element:<Test/>
             }
         ]
     },
-    {
-        path:'/',
-        element:<Test/>
-    }
 ])
