@@ -93,7 +93,7 @@ const Landing = () => {
   return (
     <div
       className="bg-no-repeat bg-cover bg-center lg:max-h-[110vh] overflow-y-hidden relative"
-      style={{ backgroundImage: `url(${Home})` }}
+      style={{ backgroundImage: `url('/images/home.png')` }}
     >
       <div>
         <Navigation />
