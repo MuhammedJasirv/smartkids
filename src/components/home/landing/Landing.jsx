@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Navigation from "../../common/navigation/Navigation";
 import Home from "../../../assets/images/ui/home.png";
@@ -10,7 +10,18 @@ import Coin2 from "../../../assets/images/home/landing/coins/2.png";
 import Coin3 from "../../../assets/images/home/landing/coins/3.png";
 import Coin4 from "../../../assets/images/home/landing/coins/4.png";
 import Coin5 from "../../../assets/images/home/landing/coins/5.png";
+import useImagePreloader from "../../../hooks/useImagePreloader";
 const Landing = () => {
+   const [isDomReady, setIsDomReady] = useState(false);
+  const isHomeLoaded = useImagePreloader(Home); 
+
+  // Wait for DOM to be ready and image to load
+  const isLoading = !isDomReady || !isHomeLoaded;
+
+  // Set DOM ready after initial render
+  React.useEffect(() => {
+    setIsDomReady(true);
+  }, []);
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -91,6 +102,16 @@ const Landing = () => {
 
 
   return (
+    <>
+     {isLoading && (
+        <div className="fixed inset-0 bg-gray-100 z-50 flex items-center justify-center">
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full"
+          />
+        </div>
+      )}
     <div
       className="bg-no-repeat bg-cover bg-center lg:max-h-[110vh] overflow-y-hidden relative"
       style={{ backgroundImage: `url('/images/home.png')` }}
@@ -226,6 +247,7 @@ const Landing = () => {
         </div>
       </motion.div>
     </div>
+    </>
   );
 };
 
