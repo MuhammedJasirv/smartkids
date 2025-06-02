@@ -135,9 +135,9 @@ const Pricing = () => {
           src={Hand}
           alt=""
           initial="hidden"
-          animate={containerInView ? "visible" : "hidden"}
-          variants={containerVariants}
-          className="absolute right-[10%] -top-11 "
+          animate={cardsInView ? "visible" : "hidden"}
+          variants={itemVariants}
+          className="absolute right-[10%] -top-11 lg:flex hidden"
         />
       </div>
       {/* Header section with title and toggle */}
@@ -172,7 +172,7 @@ const Pricing = () => {
       {/* Pricing cards section */}
       <motion.div
         ref={cardsRef}
-        className="flex justify-center gap-10 mt-10 md:mt-18 px-4 flex-wrap"
+        className="flex justify-center gap-10 lg:gap-20 mt-10 md:mt-18 px-4 flex-wrap"
         initial="hidden"
         animate={cardsInView ? "visible" : "hidden"}
         variants={containerVariants}
@@ -255,8 +255,19 @@ const Card = ({ data, inView, index }) => {
   };
 
   return (
-    <div className="flex justify-center mt-5">
+    <div className="flex justify-center mt-5 relative">
       {/* Outer border wrapper */}
+      {/* <div style={getBorderStyle()}  className=" bg-transparent border p-2  absolute -bottom-11 rounded-full -right-10 ">
+      
+      </div> */}
+      <div
+        style={getBorderStyle()}
+        className="p-[3px] rounded-full absolute -bottom-11 z-20 -right-10"
+      >
+        <div className="bg-transparent rounded-full ">
+          <img src={Coin1} alt="" />
+        </div>
+      </div>
       <motion.div
         className="p-[2px] rounded-4xl"
         style={getBorderStyle()}

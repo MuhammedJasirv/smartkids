@@ -11,6 +11,8 @@ import Histroy from "../../../assets/images/home/how it work/History.png";
 import Transaction from "../../../assets/images/home/how it work/Transaction.png";
 import TransactionSilver from "../../../assets/images/home/how it work/TransactionSilverCard.png";
 import IdCard from "../../../assets/images/home/how it work/IdCard.png";
+import Coin1 from "../../../assets/images/home/how it work/coins/1.png";
+import Coin2 from "../../../assets/images/home/how it work/coins/2.png";
 const Howitwork = () => {
   // Animation variants
   const containerVariants = {
@@ -81,6 +83,14 @@ const Howitwork = () => {
       className="bg-no-repeat bg-cover bg-center pb-10 relative"
       style={{ backgroundImage: `url(${Home})` }}
     >
+      <div>
+        <motion.img
+          src={Coin2}
+          variants={imageVariants}
+          alt=""
+          className="absolute  hidden lg:flex right-[5%] bottom-[20%]"
+        />
+      </div>
       {/* Hand image with animation */}
       <motion.img
         src={Hand}
@@ -135,12 +145,23 @@ const Howitwork = () => {
             />
 
             {/* Main image (on top) */}
-            <motion.img
-              src={ImgOne}
-              alt=""
-              className="relative z-10 w-40 xs:w-48 sm:w-56 md:w-64 lg:w-72 xl:w-auto"
-              variants={imageVariants}
-            />
+            <div className="relative inline-block">
+              {/* Offer tag (coin) */}
+              <motion.img
+                src={Coin1}
+                alt="offer"
+                variants={imageVariants}
+                className="absolute -top-3 -left-3 w-10 xs:w-12 xs:-left- xs:-top-3 sm:w-12 sm:-left-1 sm:-top-1 md:w-14 md:-left-2 md:-top-3 lg:w-18 xl:w-18"
+              />
+
+              {/* Main product image */}
+              <motion.img
+                src={ImgOne}
+                alt="product"
+                className="relative z-10 w-40 xs:w-48 sm:w-56 md:w-64 lg:w-72 xl:w-80"
+                variants={imageVariants}
+              />
+            </div>
 
             {/* IdCard overlay (above gradient but behind ImgOne) */}
             <motion.div
@@ -215,51 +236,59 @@ const Howitwork = () => {
         </motion.div>
 
         <div className="w-full lg:w-[30%] flex justify-center lg:pr-20 order-1 lg:order-2">
-  <div className="relative p-3 mt-6 lg:mt-0 lg:p-0">
-    
-    {/* Gradient Background */}
-    <motion.div
-      className="bg-gradient-to-b from-[#3E89C8] to-[#95C83E] 
+          <div className="relative p-3 mt-6 lg:mt-0 lg:p-0">
+            {/* Gradient Background */}
+            <motion.div
+              className="bg-gradient-to-b from-[#3E89C8] to-[#95C83E] 
                  w-32 xs:w-36 sm:w-40 md:w-44 lg:w-48 xl:w-52 2xl:w-56 
                 h-[180px] xs:h-[210px] sm:h-[240px] md:h-[270px] lg:h-[250px] xl:h-[340px] 2xl:h-[340px] 
                  absolute rounded-4xl -top-0 xs:top-0 md:-top-0 left-0 xs:left-0 sm:left-0  md:-left-2  lg:-left-6 z-0"
-      variants={imageVariants}
-    />
+              variants={imageVariants}
+            />
 
-    {/* Main Image */}
-    <motion.img
-      src={ImgTwo}
-      className="relative z-10 w-40 xs:w-48 sm:w-56 md:w-64 lg:w-72 xl:w-80 max-w-full"
-      alt=""
-      variants={imageVariants}
-    />
+            {/* Main Image */}
+            <div className="relative inline-block">
+              {/* Offer tag (coin) */}
+              <motion.img
+                src={Coin1}
+                alt="offer"
+                variants={imageVariants}
+                className="absolute -top-3 -right-3 w-10 xs:w-12 xs:-right-3 xs:-top-3 sm:w-12 sm:-right-1 sm:-top-1 md:w-14 md:-right-2 md:-top-3 lg:w-18 xl:w-18"
+              />
 
-    {/* Transaction Icon */}
-    <motion.img
-      src={Transaction}
-      className="absolute z-20 -left-14 xs:-left-10 sm:-left-12 md:-left-10 lg:-left-20 xl:-left-48 
+              {/* Main product image */}
+              <motion.img
+                src={ImgTwo}
+                alt="product"
+                className="relative z-10 w-40 xs:w-48 sm:w-56 md:w-64 lg:w-72 xl:w-80 max-w-full"
+                variants={imageVariants}
+              />
+            </div>
+
+            {/* Transaction Icon */}
+            <motion.img
+              src={Transaction}
+              className="absolute z-20 -left-14 xs:-left-10 sm:-left-12 md:-left-10 lg:-left-20 xl:-left-48 
                  top-2 xs:top-4 md:top-3 sm:top-4 lg:-top-3 w-32 xs:w-28 sm:w-36 md:w-36 lg:w-44 xl:w-auto"
-      alt=""
-      initial={{ y: -20, opacity: 0 }}
-      animate={childSectionInView ? { y: 0, opacity: 1 } : {}}
-      transition={{ delay: 0.3 }}
-    />
+              alt=""
+              initial={{ y: -20, opacity: 0 }}
+              animate={childSectionInView ? { y: 0, opacity: 1 } : {}}
+              transition={{ delay: 0.3 }}
+            />
 
-    {/* Transaction Silver Icon */}
-    <motion.img
-      src={TransactionSilver}
-      className="absolute z-20 bottom-0 xs:-bottom-0 sm:-bottom-0 md:-bottom-0  lg:bottom-0 
+            {/* Transaction Silver Icon */}
+            <motion.img
+              src={TransactionSilver}
+              className="absolute z-20 bottom-0 xs:-bottom-0 sm:-bottom-0 md:-bottom-0  lg:bottom-0 
 
                 right-3 xs:right-0 sm:right-0 md:right-0 lg:-right-0 xl:-right-30 w-32 xs:w-28 sm:w-36 md:w-36 lg:w-44 xl:w-auto"
-      alt=""
-      initial={{ y: 20, opacity: 0 }}
-      animate={childSectionInView ? { y: 0, opacity: 1 } : {}}
-      transition={{ delay: 0.4 }}
-    />
-
-  </div>
-</div>
-
+              alt=""
+              initial={{ y: 20, opacity: 0 }}
+              animate={childSectionInView ? { y: 0, opacity: 1 } : {}}
+              transition={{ delay: 0.4 }}
+            />
+          </div>
+        </div>
       </motion.div>
     </div>
   );
