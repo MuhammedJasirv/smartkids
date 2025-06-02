@@ -5,9 +5,9 @@ import MobileScreen from "../../../assets/images/home/paymentsApp/MobileScreen.p
 import KVector from "../../../assets/images/home/paymentsApp/KVector.png";
 import Transfer from "../../../assets/images/home/paymentsApp/Transfer.png";
 import Notification from "../../../assets/images/home/paymentsApp/notification.png";
-import Home from '../../../assets/images/home/paymentsApp/Bg.png'
-import Coin1 from '../../../assets/images/home/paymentsApp/coins/1.png'
-import Coin2 from '../../../assets/images/home/paymentsApp/coins/2.png'
+import Home from "../../../assets/images/home/paymentsApp/Bg.png";
+import Coin1 from "../../../assets/images/home/paymentsApp/coins/1.png";
+import Coin2 from "../../../assets/images/home/paymentsApp/coins/2.png";
 const items = [
   {
     id: 1,
@@ -115,6 +115,36 @@ const PaymentsApp = () => {
       },
     },
   };
+  const coinVariants = {
+    hidden: {
+      y: 20,
+      opacity: 0,
+      rotate: 0,
+    },
+    visible: (i) => ({
+      y: 0,
+      opacity: 1,
+      rotate: [0, 10, -10, 0], // subtle wiggle rotation
+      transition: {
+        delay: i * 0.3,
+        duration: 1.5,
+        ease: "easeInOut",
+        rotate: {
+          yoyo: Infinity,
+          duration: 4,
+          delay: 2,
+        },
+      },
+    }),
+    float: {
+      y: ["0%", "-20%", "0%"],
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
 
   return (
     <motion.div
@@ -125,7 +155,6 @@ const PaymentsApp = () => {
       animate={inView ? "visible" : "hidden"}
       variants={containerVariants}
     >
-      
       {/* <div
             className="bg-no-repeat bg-cover bg-center pb-10 relative"
             style={{ backgroundImage: `url(${Home})` }}
@@ -152,9 +181,23 @@ const PaymentsApp = () => {
           </p>
         </motion.div>
         <div>
-        <img src={Coin1} alt="" className="z-0 absolute hidden top-[5%] lg:flex" />
-        <img src={Coin2} alt="" className="z-0 absolute hidden right-0  top-[20%] lg:flex" />
-      </div>
+          <motion.img
+            src={Coin1}
+            alt=""
+            initial="hidden"
+            animate={["visible", "float"]}
+            variants={coinVariants}
+            className="z-0 absolute hidden top-[5%] lg:flex"
+          />
+          <motion.img
+            src={Coin2}
+            alt=""
+            initial="hidden"
+            animate={["visible", "float"]}
+            variants={coinVariants}
+            className="z-0 absolute hidden right-0  top-[20%] lg:flex"
+          />
+        </div>
         <div className="w-full max-w-5xl mx-auto px-4 ">
           <div className="flex flex-col md:flex-row md:gap-4 gap-14 transition-all duration-500 mt-8 md:mt-0">
             {visibleItems.map((item) => (
