@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../../../assets/images/common/LogoNaviagation.png";
 import LanguageSelector from "./LanguageSelector/LanguageSelector";
+import { Link } from "react-router-dom";
 
-const Navigation = () => {
+const Navigation = ({image}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
 
@@ -11,7 +12,14 @@ const Navigation = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const navItems = ["Home", "About Us", "Parents", "Student", "FAQ", "Contact Us"];
+  const navItems = [
+  { label: "Home", path: "/" },
+  { label: "About Us", path: "/about" },
+  { label: "Parents", path: "/parents" },
+  { label: "Student", path: "/student" },
+  { label: "FAQ", path: "/faq" },
+  { label: "Contact Us", path: "/contact" },
+];
 
   // Animation variants
   const containerVariants = {
@@ -20,9 +28,9 @@ const Navigation = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
+        delayChildren: 0.3,
+      },
+    },
   };
 
   const itemVariants = {
@@ -33,9 +41,9 @@ const Navigation = () => {
       transition: {
         type: "spring",
         stiffness: 100,
-        damping: 10
-      }
-    }
+        damping: 10,
+      },
+    },
   };
 
   const buttonVariants = {
@@ -45,33 +53,33 @@ const Navigation = () => {
       transition: {
         duration: 0.3,
         yoyo: Infinity,
-        ease: "easeOut"
-      }
+        ease: "easeOut",
+      },
     },
     tap: {
       scale: 0.95,
-      boxShadow: "0px 2px 5px rgba(62, 137, 200, 0.4)"
-    }
+      boxShadow: "0px 2px 5px rgba(62, 137, 200, 0.4)",
+    },
   };
 
   return (
-    <div>
+    <div  style={image ? { backgroundImage: `url(${image})` } : {}}>
       {/* Desktop Navigation */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="hidden md:flex lg:w-[90%] xl:w-[85%] pt-2 mx-auto xl:text-base lg:px-6 justify-between md:px-8 items-center text-white"
       >
-        <motion.img 
-          src={Logo} 
-          alt="Logo" 
+        <motion.img
+          src={Logo}
+          alt="Logo"
           className="h-full p-2 object-contain"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         />
-        
-        <motion.div 
+
+        <motion.div
           className="flex items-center md:space-x-4 lg:space-x-8 xl:space-x-14"
           variants={containerVariants}
           initial="hidden"
@@ -79,16 +87,18 @@ const Navigation = () => {
         >
           {navItems.map((item) => (
             <motion.div
-              key={item}
+              key={item.label}
               variants={itemVariants}
-              onHoverStart={() => setHoveredItem(item)}
+              onHoverStart={() => setHoveredItem(item.label)}
               onHoverEnd={() => setHoveredItem(null)}
               className="relative"
             >
-              <p className="font-sans font-semibold md:text-sm lg:text-base xl:text-lg hover:text-gray-200 cursor-pointer">
-                {item}
-              </p>
-              {hoveredItem === item && (
+              <Link to={item.path}>
+                <span className="font-sans font-semibold md:text-sm lg:text-base xl:text-lg hover:text-gray-200 cursor-pointer">
+                  {item.label}
+                </span>
+              </Link>
+              {hoveredItem === item.label && (
                 <motion.div
                   layoutId="navUnderline"
                   className="absolute bottom-0 left-0 w-full h-0.5 bg-white"
@@ -101,8 +111,8 @@ const Navigation = () => {
             </motion.div>
           ))}
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="flex items-center lg:space-x-6"
           variants={containerVariants}
           initial="hidden"
@@ -121,15 +131,15 @@ const Navigation = () => {
       </motion.div>
 
       {/* Mobile Navigation */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         className="md:hidden flex justify-between items-center text-white p-4"
       >
-        <motion.img 
-          src={Logo} 
-          alt="Logo" 
+        <motion.img
+          src={Logo}
+          alt="Logo"
           className="h-16 object-contain"
           whileTap={{ scale: 0.9 }}
         />
@@ -179,7 +189,7 @@ const Navigation = () => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="md:hidden w-full overflow-hidden"
           >
-            <motion.div 
+            <motion.div
               className="px-6 py-4 space-y-4"
               variants={containerVariants}
               initial="hidden"
@@ -187,13 +197,13 @@ const Navigation = () => {
             >
               {navItems.map((item) => (
                 <motion.p
-                  key={item}
+                  key={item.label}
                   variants={itemVariants}
                   whileHover={{ x: 5 }}
                   whileTap={{ scale: 0.95 }}
                   className="font-sans font-semibold text-lg text-white hover:text-gray-200 cursor-pointer block py-2"
                 >
-                  {item}
+                  {item.label}
                 </motion.p>
               ))}
               <motion.button
@@ -205,7 +215,7 @@ const Navigation = () => {
                 Download the App
               </motion.button>
             </motion.div>
-          </motion.div>  
+          </motion.div>
         )}
       </AnimatePresence>
     </div>
