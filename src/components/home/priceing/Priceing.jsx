@@ -3,24 +3,26 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { TiTick } from "react-icons/ti";
 import Home from "../../../assets/images/home/pricing/Bg.png";
-
+import Coin1 from "../../../assets/images/home/pricing/coins/1.png";
+import Hand from "../../../assets/images/home/pricing/Hand.png";
 const Pricing = () => {
   const [isOne, setIsOn] = useState(false);
   const [containerRef, containerInView] = useInView({
     triggerOnce: true,
-    threshold: 0.2
+    threshold: 0.2,
   });
 
   const [cardsRef, cardsInView] = useInView({
     triggerOnce: true,
-    threshold: 0.1
+    threshold: 0.1,
   });
 
   const data = [
     {
       Title: "Basic",
       Price: "$345",
-      potis: "15 000 words/month, Write in 10 languages, Image generation (40/month), 25+ languages, Unlimited projects, Unlimited Marvel Chat, New experimental feature",
+      potis:
+        "15 000 words/month, Write in 10 languages, Image generation (40/month), 25+ languages, Unlimited projects, Unlimited Marvel Chat, New experimental feature",
       color: "#134E6B",
       borderType: "gradient",
       borderColors: ["#3E89C8", "#95C83E"],
@@ -30,7 +32,8 @@ const Pricing = () => {
       Title: "Standard",
       subtitle: "Most Popular",
       Price: "$335",
-      potis: "15 000 words/month, Write in 10 languages, Image generation (40/month), 25+ languages, Unlimited projects, Unlimited Marvel Chat, New experimental feature",
+      potis:
+        "15 000 words/month, Write in 10 languages, Image generation (40/month), 25+ languages, Unlimited projects, Unlimited Marvel Chat, New experimental feature",
       color: "#8CBE3E",
       borderType: "solid",
       borderColor: "#8CBE3E",
@@ -39,7 +42,8 @@ const Pricing = () => {
     {
       Title: "Premium",
       Price: "$385",
-      potis: "15 000 words/month, Write in 10 languages, Image generation (40/month), 25+ languages, Unlimited projects, Unlimited Marvel Chat, New experimental feature",
+      potis:
+        "15 000 words/month, Write in 10 languages, Image generation (40/month), 25+ languages, Unlimited projects, Unlimited Marvel Chat, New experimental feature",
       color: "#134E6B",
       borderType: "gradient",
       borderColors: ["#3E89C8", "#95C83E"],
@@ -54,9 +58,9 @@ const Pricing = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        when: "beforeChildren"
-      }
-    }
+        when: "beforeChildren",
+      },
+    },
   };
 
   const itemVariants = {
@@ -66,9 +70,9 @@ const Pricing = () => {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "backOut"
-      }
-    }
+        ease: "backOut",
+      },
+    },
   };
 
   const textVariants = {
@@ -78,9 +82,39 @@ const Pricing = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
+  };
+  const coinVariants = {
+    hidden: {
+      y: 20,
+      opacity: 0,
+      rotate: 0,
+    },
+    visible: (i) => ({
+      y: 0,
+      opacity: 1,
+      rotate: [0, 10, -10, 0], // subtle wiggle rotation
+      transition: {
+        delay: i * 0.3,
+        duration: 1.5,
+        ease: "easeInOut",
+        rotate: {
+          yoyo: Infinity,
+          duration: 4,
+          delay: 2,
+        },
+      },
+    }),
+    float: {
+      y: ["0%", "-20%", "0%"],
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
   };
 
   return (
@@ -88,6 +122,24 @@ const Pricing = () => {
       className="bg-no-repeat bg-cover  pb-10 pt-10 relative"
       style={{ backgroundImage: `url(${Home})` }}
     >
+      <div>
+        <motion.img
+          initial="hidden"
+          animate={["visible", "float"]}
+          variants={coinVariants}
+          src={Coin1}
+          alt=""
+          className="absolute z-0 hidden lg:flex left-[25%]"
+        />
+        <motion.img
+          src={Hand}
+          alt=""
+          initial="hidden"
+          animate={containerInView ? "visible" : "hidden"}
+          variants={containerVariants}
+          className="absolute right-[10%] -top-11 "
+        />
+      </div>
       {/* Header section with title and toggle */}
       <motion.div
         ref={containerRef}
@@ -96,25 +148,29 @@ const Pricing = () => {
         animate={containerInView ? "visible" : "hidden"}
         variants={containerVariants}
       >
-        <motion.p 
-          className="md:text-5xl font-bold font-kufi text-white m-auto text-center text-2xl"
+        <motion.p
+          className="md:text-5xl font-bold font-kufi text-white m-auto text-center text-2xl mt-0 lg:mt-10"
           variants={textVariants}
         >
           Money well Invested
         </motion.p>
 
-        <motion.div 
+        <motion.div
           className="flex items-center gap-6 md:gap-10 md:mt-10 mt-5"
           variants={textVariants}
         >
-          <p className="text-white text-sm md:text-xl font-sans font-bold">Monthly</p>
+          <p className="text-white text-sm md:text-xl font-sans font-bold">
+            Monthly
+          </p>
           <ToggleSwitch isOn={isOne} setIsOn={setIsOn} />
-          <p className="text-white text-sm md:text-xl font-sans font-bold">Yearly</p>
+          <p className="text-white text-sm md:text-xl font-sans font-bold">
+            Yearly
+          </p>
         </motion.div>
       </motion.div>
 
       {/* Pricing cards section */}
-      <motion.div 
+      <motion.div
         ref={cardsRef}
         className="flex justify-center gap-10 mt-10 md:mt-18 px-4 flex-wrap"
         initial="hidden"
@@ -138,7 +194,7 @@ const Pricing = () => {
 };
 
 const ToggleSwitch = ({ isOn, setIsOn }) => {
-   const [xOffset, setXOffset] = useState(0);
+  const [xOffset, setXOffset] = useState(0);
 
   useEffect(() => {
     const calculateOffset = () => {
@@ -162,10 +218,7 @@ const ToggleSwitch = ({ isOn, setIsOn }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (
-    <motion.div 
-      className="flex items-center gap-3"
-      whileTap={{ scale: 0.95 }}
-    >
+    <motion.div className="flex items-center gap-3" whileTap={{ scale: 0.95 }}>
       <div
         onClick={() => setIsOn(!isOn)}
         className={`md:w-40 md:h-12 w-14 h-6 flex items-center border border-[#3E89C8] rounded-full p-1 cursor-pointer transition-colors duration-500`}
@@ -177,7 +230,7 @@ const ToggleSwitch = ({ isOn, setIsOn }) => {
               : "bg-gradient-to-b from-[#3E89C8] to-[#95C83E]"
           }`}
           animate={{
-             x: isOn ? xOffset : 0
+            x: isOn ? xOffset : 0,
           }}
           transition={{ type: "spring", stiffness: 100, damping: 20 }}
         />
@@ -204,7 +257,7 @@ const Card = ({ data, inView, index }) => {
   return (
     <div className="flex justify-center mt-5">
       {/* Outer border wrapper */}
-      <motion.div 
+      <motion.div
         className="p-[2px] rounded-4xl"
         style={getBorderStyle()}
         whileHover={{ scale: 1.02 }}
@@ -215,7 +268,7 @@ const Card = ({ data, inView, index }) => {
           className="rounded-4xl flex flex-col items-center gap-10 p-6 max-w-sm"
         >
           {/* Title Badge */}
-          <motion.div 
+          <motion.div
             className="relative -mt-12"
             initial={{ y: -50, opacity: 0 }}
             animate={inView ? { y: 0, opacity: 1 } : {}}
@@ -237,7 +290,7 @@ const Card = ({ data, inView, index }) => {
           </motion.div>
 
           {/* Price */}
-          <motion.p 
+          <motion.p
             className="text-4xl font-bold"
             initial={{ scale: 0 }}
             animate={inView ? { scale: 1 } : {}}
@@ -249,20 +302,27 @@ const Card = ({ data, inView, index }) => {
           {/* Features */}
           <div className="text-start text-sm w-full">
             {data.potis.split(",").map((item, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 className="flex items-start gap-3 mt-3"
                 initial={{ x: -20, opacity: 0 }}
                 animate={inView ? { x: 0, opacity: 1 } : {}}
                 transition={{ delay: 0.5 + index * 0.1 + idx * 0.05 }}
               >
-                <div className={`${data.textColor === "black" ? "bg-black" : "bg-[#8CBE3E]"} h-4 w-4 rounded-full flex justify-center items-center mt-1 flex-shrink-0`}>
-                  <TiTick color={`${data.textColor === "black" ? "#8CBE3E" : "#134E6B"}`} size={12}/>
+                <div
+                  className={`${
+                    data.textColor === "black" ? "bg-black" : "bg-[#8CBE3E]"
+                  } h-4 w-4 rounded-full flex justify-center items-center mt-1 flex-shrink-0`}
+                >
+                  <TiTick
+                    color={`${
+                      data.textColor === "black" ? "#8CBE3E" : "#134E6B"
+                    }`}
+                    size={12}
+                  />
                 </div>
-                <p className="font-semibold font-sans text-lg">
-                  {item.trim()}
-                </p>
-              </motion.div>  
+                <p className="font-semibold font-sans text-lg">{item.trim()}</p>
+              </motion.div>
             ))}
           </div>
         </div>
