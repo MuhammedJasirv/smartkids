@@ -63,7 +63,7 @@ const Navigation = ({image}) => {
   };
 
   return (
-    <div  style={image ? { backgroundImage: `url(${image})` } : {}}>
+    <div  style={image ? { backgroundImage: `url(${image})`,backgroundRepeat: 'no-repeat', backgroundSize: 'cover',backgroundPosition: 'center',} : {}}>
       {/* Desktop Navigation */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
