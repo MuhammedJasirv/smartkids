@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Man from "../../../assets/images/about/landing/man.png";
-import Whatsapp from "../../../assets/images/about/landing/whatsapp.png";
-import Mail from "../../../assets/images/about/landing/mail.png";
-import Phone from "../../../assets/images/about/landing/phone.png";
-import Home from '../../../assets/images/about/landing/Bg.png'
+import Man from "../../../assets/images/contact/landing/man.png";
+import Whatsapp from "../../../assets/images/contact/landing/whatsapp.png";
+import Mail from "../../../assets/images/contact/landing/mail.png";
+import Phone from "../../../assets/images/contact/landing/phone.png";
+import Home from '../../../assets/images/contact/landing/Bg.png'
 import useImagePreloader from "../../../hooks/useImagePreloader";
 import { motion } from "framer-motion";
 const Landing = () => {
@@ -72,7 +72,7 @@ const Landing = () => {
           </div>
         </div>
       </div>
-       <div className="flex flex-col md:flex-row justify-between mx-auto w-[90%] gap-10 mt-5">
+       <div className="flex flex-col md:flex-row justify-between mx-auto w-[90%] gap-10  mt-5">
       {data.map((item, index) => (
         <Card key={index} item={item} />
       ))}
@@ -85,7 +85,7 @@ const Landing = () => {
 const Card = ({ item }) => {
   return (
     <div className="bg-gradient-to-b from-[#3E89C8] to-[#95C83E] p-[2px] rounded-3xl w-full ">
-      <div className="bg-[#012C3B] rounded-3xl p-5 h-full relative flex items-start px-20">
+      <div className="bg-[#012C3B] rounded-3xl p-5 h-full relative flex ">
         {/* Image Positioned */}
         <img
           src={item.icon}
@@ -94,8 +94,8 @@ const Card = ({ item }) => {
         />
 
         {/* Text Content (70% width) */}
-        <div className="flex flex-col justify-between h-full gap-4 ml-auto w-[70%]">
-          <p className="font-semibold font-sans text-xl text-center text-white">
+        <div className="flex flex-col justify-between h-full gap-4 ml-auto ">
+          <p className="font-semibold font-sans text-xl text-center text-white w-[80%]">
             {item.title}
           </p>
           <p className="px-5 py-3 bg-[#8CBE3E] text-lg text-black rounded-full text-center">
