@@ -5,7 +5,8 @@ import Mail from "../../../assets/images/contact/landing/mail.png";
 import Phone from "../../../assets/images/contact/landing/phone.png";
 import Home from '../../../assets/images/contact/landing/Bg.png'
 import useImagePreloader from "../../../hooks/useImagePreloader";
-import { motion } from "framer-motion";
+import ArrowImg from '../../../assets/images/contact/landing/Arrow.png'
+import { motion, useScroll, useTransform } from 'framer-motion';
 const Landing = () => {
       const [isDomReady, setIsDomReady] = useState(false);
   const isHomeLoaded = useImagePreloader(Home); 
@@ -38,7 +39,7 @@ const Landing = () => {
         </div>
       )}
     <div
-      className="bg-no-repeat bg-cover  lg:max-h-[110vh] overflow-y-hidden relative"
+      className="bg-no-repeat bg-cover  overflow-y-hidden relative"
       style={{ backgroundImage: `url(${Home})` }}
     >
       <div className="flex flex-col-reverse md:flex-row  w-full">
@@ -77,6 +78,9 @@ const Landing = () => {
         <Card key={index} item={item} />
       ))}
     </div>
+     <div className="w-[10%] mx-auto mt-10 mb-10">
+        <Arrow/>
+      </div>
     </div>
     </>
   );
@@ -85,7 +89,7 @@ const Landing = () => {
 const Card = ({ item }) => {
   return (
     <div className="bg-gradient-to-b from-[#3E89C8] to-[#95C83E] p-[2px] rounded-3xl w-full ">
-      <div className="bg-[#012C3B] rounded-3xl p-5 h-full relative flex ">
+      <div className="bg-[#012C3B] rounded-3xl p-5 h-full relative flex items-end ">
         {/* Image Positioned */}
         <img
           src={item.icon}
@@ -94,8 +98,8 @@ const Card = ({ item }) => {
         />
 
         {/* Text Content (70% width) */}
-        <div className="flex flex-col justify-between h-full gap-4 ml-auto ">
-          <p className="font-semibold font-sans text-xl text-center text-white w-[80%]">
+        <div className="flex flex-col justify-between h-full gap-4  ml-[30%]">
+          <p className="font-semibold font-sans text-xl text-center text-white ">
             {item.title}
           </p>
           <p className="px-5 py-3 bg-[#8CBE3E] text-lg text-black rounded-full text-center">
@@ -108,3 +112,19 @@ const Card = ({ item }) => {
 };
 
 export default Landing;
+
+
+const Arrow = () => {
+  return (
+    <div className="bg-gradient-to-b from-[#3E89C8] to-[#95C83E] p-[2px] rounded-4xl w-full">
+      <div className=" flex justify-center bg-[#034952] rounded-4xl p-2 items-center  ">
+        <img 
+          src={ArrowImg} 
+          alt="Scroll indicator" 
+  
+        />
+      </div>
+    </div>
+  );
+};
+
