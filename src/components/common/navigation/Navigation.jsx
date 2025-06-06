@@ -2,24 +2,26 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../../../assets/images/common/LogoNaviagation.png";
 import LanguageSelector from "./LanguageSelector/LanguageSelector";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
-const Navigation = ({image}) => {
+const Navigation = ({ image }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
+  
+const MotionLink = motion(RouterLink);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const navItems = [
-  { label: "Home", path: "/" },
-  { label: "About Us", path: "/about" },
-  { label: "Parents", path: "/parents" },
-  { label: "Student", path: "/student" },
-  { label: "FAQ", path: "/faq" },
-  { label: "Contact Us", path: "/contact" },
-];
+    { label: "Home", path: "/" },
+    { label: "About Us", path: "/about" },
+    { label: "Parents", path: "/parents" },
+    { label: "Student", path: "/student" },
+    { label: "FAQ", path: "/faq" },
+    { label: "Contact Us", path: "/contact" },
+  ];
 
   // Animation variants
   const containerVariants = {
@@ -63,7 +65,18 @@ const Navigation = ({image}) => {
   };
 
   return (
-    <div  style={image ? { backgroundImage: `url(${image})`,backgroundRepeat: 'no-repeat', backgroundSize: 'cover',backgroundPosition: 'center',} : {}}>
+    <div
+      style={
+        image
+          ? {
+              backgroundImage: `url(${image})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }
+          : {}
+      }
+    >
       {/* Desktop Navigation */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -93,11 +106,11 @@ const Navigation = ({image}) => {
               onHoverEnd={() => setHoveredItem(null)}
               className="relative"
             >
-              <Link to={item.path}>
+              <MotionLink to={item.path}>
                 <span className="font-sans font-semibold md:text-sm lg:text-base xl:text-lg hover:text-gray-200 cursor-pointer">
                   {item.label}
                 </span>
-              </Link>
+              </MotionLink>
               {hoveredItem === item.label && (
                 <motion.div
                   layoutId="navUnderline"
@@ -196,7 +209,8 @@ const Navigation = ({image}) => {
               animate="visible"
             >
               {navItems.map((item) => (
-                <motion.p
+                <MotionLink
+                  to={item.path}
                   key={item.label}
                   variants={itemVariants}
                   whileHover={{ x: 5 }}
@@ -204,7 +218,7 @@ const Navigation = ({image}) => {
                   className="font-sans font-semibold text-lg text-white hover:text-gray-200 cursor-pointer block py-2"
                 >
                   {item.label}
-                </motion.p>
+                </MotionLink>
               ))}
               <motion.button
                 variants={buttonVariants}

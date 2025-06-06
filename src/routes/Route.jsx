@@ -5,6 +5,7 @@ import Test from "../pages/Test";
 import About from "../pages/About";
 import CommonLayout from "../layout/CommonLayout";
 import Contact from "../pages/Contact";
+import Parents from "../pages/Parents";
 
 
 
@@ -37,6 +38,16 @@ export const router =createBrowserRouter([
             {
                 index:true,
                 element:<Contact/>
+            }
+        ]
+    },
+    {
+        path:"/parents",
+        element:<CommonLayout/>,
+        children:[
+            {
+                index:true,
+                element:<Parents/>
             }
         ]
     },

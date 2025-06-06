@@ -4,6 +4,7 @@ import Landing from '../components/contact/landing/Landing'
 import Image from '../assets/images/contact/navigation/Bg.png'
 import Form from '../components/contact/form/Form'
 import Footer from '../components/common/footer/Footer'
+import FooterBanner from '../components/common/footerBanner/FooterBanner'
 const Contact = () => {
   return (
     <div>
@@ -15,6 +16,9 @@ const Contact = () => {
         </div>
         <div >
           <Form/>
+        </div>
+        <div>
+          <FooterBanner color={"3E89C8"} />
         </div>
         <div>
           <Footer/>
