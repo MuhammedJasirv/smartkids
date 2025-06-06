@@ -1,6 +1,6 @@
 import React from 'react'
 import Navigation from '../components/common/navigation/Navigation'
-import Image from '../assets/images/contact/navigation/Bg.png'
+import Image from '../assets/images/about/navigation/Bg.png'
 const About = () => {
   return (
     <div>
