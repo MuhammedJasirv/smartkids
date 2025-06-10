@@ -5,17 +5,10 @@ import dots from "../../../assets/images/parents/dots.png";
 const Heder = () => {
   return (
     <div
-      className="relative pt-20 pb-16 bg-no-repeat bg-cover  bg-left-top text-white flex flex-col justify-center items-center px-4 "
+      className="relative pt-20 pb-16 bg-no-repeat bg-cover bg-left-top text-white flex flex-col justify-center items-center px-4 "
       style={{ backgroundImage: `url(${Bg})` }}
     >
-      {/* Dots overlay */}
-      {/* <div
-        className="absolute top-0 left-0 w-full h-full bg-no-repeat bg-center  z-10"
-        style={{
-          backgroundImage: `url(${dots})`,
-        }}
-      />  */}
-      <img src={dots} alt="" className="absolute" />
+      <img src={dots} alt="" className="absolute"  />
 
       {/* Text content */}
       <div className="relative z-20 text-center">
