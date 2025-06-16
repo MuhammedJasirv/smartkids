@@ -3,6 +3,7 @@ import Navigation from "../components/common/navigation/Navigation";
 import Image from "../assets/images/about/navigation/Bg.png";
 import Heder from "../components/parents/heder/Heder";
 import About from "../components/parents/about/About";
+import Features from "../components/parents/features/Features";
 
 const Parents = () => {
   return (
@@ -16,6 +17,9 @@ const Parents = () => {
       </div>
       <div>
         <About/>
+      </div>
+      <div>
+        <Features/>
       </div>
     </div>
   );
