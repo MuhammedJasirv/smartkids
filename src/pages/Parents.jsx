@@ -27,12 +27,12 @@ const Parents = () => {
       <div>
         <Service/>
       </div>
-      <div className="relative h-24">
+      <div className="relative h-24 z-20">
         <div className="w-full md:absolute mt-7">
         <FooterBanner color={"8CBE3E"} width={"80%"} />
         </div>
       </div>
-      <div>
+      <div className="z-10">
         <Footer Colour="#001830" />
       </div>
     </div>
