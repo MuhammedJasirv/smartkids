@@ -32,7 +32,7 @@ const Header = () => {
           className="absolute top-0 left-1/2 transform -translate-x-1/2 max-h-[800px] z-0 pointer-events-none"
         />
       </div>
-
+  
       {/* Text section */}
       <motion.div
         ref={textRef}
