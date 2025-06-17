@@ -17,7 +17,7 @@ export const router =createBrowserRouter([
         children:[
             {
                 index:true,
-                element:<Test/>
+                element:<Home/>
             }
         ]
     },
@@ -48,6 +48,16 @@ export const router =createBrowserRouter([
             {
                 index:true,
                 element:<Parents/>
+            }
+        ]
+    },
+    {
+        path:"/test",
+        element:<CommonLayout/>,
+        children:[
+            {
+                index:true,
+                element:<Test/>
             }
         ]
     },

@@ -6,13 +6,16 @@ import FaceBook from '../../../assets/images/socail-media/FaceBook.png'
 import Instagram from '../../../assets/images/socail-media/Insatgram.png'
 import LinkedIn from '../../../assets/images/socail-media/LinkedIn.png'
 
-const Footer = () => {
+const Footer = ({ Colour = "#003041" }) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-50px" })
 
   return (
     <motion.footer 
-      className="w-full bg-[#003041] text-white"
+      className={`w-full text-white transition-all duration-500 ${
+        Colour==="#003041" ? "pt-0" : "md:pt-34"
+      }`}
+      style={{ backgroundColor: Colour }}
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { 
