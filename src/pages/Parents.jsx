@@ -33,7 +33,7 @@ const Parents = () => {
         </div>
       </div>
       <div className="z-10">
-        <Footer Colour="#001830" />
+        <Footer Colour="#001830" pt="34" />
       </div>
     </div>
   );

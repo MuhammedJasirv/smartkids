@@ -78,13 +78,13 @@ const Card = ({ data }) => {
       initial="hidden"
       animate={controls}
       variants={cardVariants}
-      className="relative bg-gradient-to-b from-[#3E89C8] to-[#95C83E] p-[2px] w-full sm:w-[90%] md:w-[45%] lg:w-[30%] rounded-2xl mx-auto"
+      className="relative bg-gradient-to-b  from-[#3E89C8] to-[#95C83E] p-[2px] w-full sm:w-[90%] md:w-[45%] lg:w-[30%] rounded-2xl mx-auto"
     >
       {/* Icon */}
       <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="bg-gradient-to-b from-[#3E89C8] to-[#95C83E] p-[2px] rounded-full">
-          <div className="bg-[#156068] rounded-full p-3">
-        <div className="bg-gradient-to-b from-[#3E89C8] to-[#95C83E] p-[2px] rounded-full">
+        <div className="bg-gradient-to-b from-[#3E89C8] to-[#95C83E] pt-[3px] pb-0 rounded-full "> 
+        <div className="bg-[#156068] rounded-full p-2">
+        <div className="bg-gradient-to-b from-[#3E89C8] to-[#95C83E] p-[1px] rounded-full">
           <div className="bg-[#156068] rounded-full p-4 flex items-center justify-center">
             <img
               src={data.icon}
